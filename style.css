@@ -1,10 +1,9 @@
 :root{
     /* COLORS */
-    --main-color : #222629;
-    --secondary-color : #474B4F;
-    --tertiary-color : #6B6E70;
-    --highlight-color : #86C232;
-    --highlight-dark-color : #61892F;
+    --main-color : #131417;
+    --secondary-color : #1C1D21;
+    --highlight-color : #27DFA5;
+    --highlight-flash-color : #00E0DA;
     --text-color : #FFFFFF;
     /* FONTS */
     --primary-font : 'Roboto', sans-serif;
@@ -43,8 +42,8 @@ nav{
     display: flex;
     align-items: center;
     padding: 20px 25px;
-    background: var(--main-color);
-    box-shadow: inset 0px -3px 0px var(--highlight-dark-color);
+    background: var(--secondary-color);
+    box-shadow: inset 0px -3px 0px var(--highlight-color);
     font-family: var(--primary-font);
     z-index: 9;
 }
@@ -129,42 +128,115 @@ nav{
 /* INTRO */
 
 .intro{
-    background: var(--tertiary-color);
-    height: 1000px;
+    background: var(--main-color);
+    margin-top: 70px;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.intro--illustration{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro--text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.intro--text--title{
+    font-weight: bold;
+    font-size: 3rem;
+    background-image: linear-gradient(to bottom right , var(--highlight-color) , var(--highlight-flash-color));
+    background-clip: text;
+    color: transparent;
+    margin: 10px 0 15px 0;
+}
+
+.intro--text--subtitle{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.intro--text--links{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.cta{
+    background: var(--highlight-color);
+    width: 150px;
+    padding: 15px 0;
+    color: var(--main-color);
+    border-radius: 5px;
+    text-align: center;
+    border: 2px solid var(--highlight-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.cta--reverse{
+    background: transparent;
+    width: 150px;
+    padding: 15px 0;
+    border: 2px solid var(--highlight-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.cta:hover{
+    background: transparent;
+    color: var(--text-color);
+}
+
+.cta--reverse:hover{
+    background: var(--highlight-color);
+    color: var(--main-color);
 }
 
 /* ABOUT */
 
 .about{
-    background: var(--main-color);
+    background: var(--secondary-color);
     height: 1000px;
 }
 
 /* PROJECTS */
 
 .projects{
-    background: var(--tertiary-color);
+    background: var(--main-color);
     height: 1000px;
 }
 
 /* REALISATIONS */
 
 .realisations{
-    background: var(--main-color);
+    background: var(--secondary-color);
     height: 1000px;
 }
 
 /* CONTACT */
 
 .contact{
-    background: var(--tertiary-color);
+    background: var(--main-color);
     height: 1000px;
 }
 
 /* FOOTER */
 
 .footer{
-    background: var(--main-color);
+    background: var(--secondary-color);
     padding: 25px 0;
     margin-top: auto;
 }

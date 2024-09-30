@@ -26,7 +26,7 @@
                      <span></span>
                  </button>
                  <div class="navlinks-container">
-                     <a href="#intro" aria-current="page">Accueil</a>
+                     <a href="#intro" aria-current="page" class="active">Accueil</a>
                      <a href="#about">A propos</a>
                      <a href="#projects">Projets</a>
                      <a href="#realisations">Réalisations</a>
@@ -37,8 +37,28 @@
        </nav>
       </header>
       <main>
-        <section class="intro" id="intro"></section>
-        <section class="about" id="about"></section>
+        <section class="intro" id="intro">
+          <div class="intro--illustration">
+            <img src="img/index.png" alt="illustration" height="500" width="500">
+          </div>
+          <div class="intro--text">
+            <p>Hello World! Je m'appelle</p>
+            <h1 class="intro--text--title">Jordan Pieton</h1>
+            <h2 class="intro--text--subtitle">Développeur web junior autodidacte et passionné.</h2>
+            <p>
+              Je suis constamment à la recherche de nouvelles opportunités pour approfondir mes compétences, relever des défis techniques et contribuer 
+              à des projets innovants. <br><br>Mon objectif est de rejoindre une équipe dynamique où je pourrai apprendre, évoluer, et mettre mes connaissances 
+              au service de solutions modernes et performantes.
+            </p>
+            <div class="intro--text--links">
+              <a href="#" class="cta--reverse"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a href="#contact" class="cta"><i class="fa-solid fa-envelope"></i> Contactez moi !</a>
+            </div>
+          </div>
+        </section>
+        <section class="about" id="about">
+          <h2 class="about--title">A propos de moi</h2>
+        </section>
         <section class="projects" id="projects"></section>
         <section class="realisations" id="realisations"></section>
         <section class="contact" id="contact"></section>
