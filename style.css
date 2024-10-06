@@ -339,7 +339,7 @@ nav{
     background: var(--highlight-color);
     color: var(--third-color);
     font-weight: bold;
-    width: 150px;
+    width: 165px;
     padding: 15px;
     border-radius: 5px;
     text-align: center;
@@ -373,6 +373,96 @@ nav{
     grid-template-columns: 1fr 2fr;
 }
 
+.contact--illustration{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact--links{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.contact--link--btn{
+    background: var(--third-color);
+    width: 160px;
+    padding: 15px 0;
+    color: var(--main-color);
+    border-radius: 5px;
+    text-align: center;
+    border: 2px solid var(--third-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.contact--link--btn:hover{
+    background: transparent;
+    color: var(--third-color);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+label{
+    color: var(--text-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input{
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--text-color);
+    outline: none;
+}
+
+input:focus{
+    outline: none;
+    border: 2px solid var(--highlight-color);
+}
+
+textarea{
+    height: 150px;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 10px;
+}
+
+textarea:focus{
+    outline: none;
+    border: 2px solid var(--highlight-color);
+}
+
+.form--btn{
+    width: 150px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 2px solid var(--highlight-color);
+    background: var(--highlight-color);
+    color: var(--main-color);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.02rem;
+    transition: 0.3s ease-in-out;
+}
+
+.form--btn:hover,
+.form--btn:focus{
+    background: transparent;
+    color: var(--highlight-color);
+    outline: none;
+}
+
 /* FOOTER */
 
 .footer{
@@ -382,6 +472,8 @@ nav{
     border-top: 2px solid var(--highlight-color);
     display: flex;
     justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
     color: var(--main-color);
 }
 
@@ -435,6 +527,14 @@ nav{
         align-items: center;
         order: -1;
         margin-bottom: 15px;
+    }
+
+    .contact--container{
+        gap: 20px;
+    }
+
+    form{
+        padding: 40px 0;
     }
 }
 
@@ -570,8 +670,12 @@ nav{
         padding: 60px 20px;
     }
 
+    .realisations{
+        padding: 60px 20px;
+    }
+
     .realisations--illustrations img{
-        width: 300px;
+        width: 350px;
     }
 
 }

@@ -119,7 +119,7 @@
             <div class="realisations--text">
               <h3 class="realisations--name">Harmonie Intérieure</h3>
               <p class="realisations--description">J'ai eu le plaisir de créer le site vitrine d'une amie qui lance son activité de sophrologie. <br><br> Ce site a pour but de la faire connaitre à de nouveaux client et comporte une page pour présenter son parcours, puis une page présentant chacune des prestations qu'elle propose. <br><br>Le site propose également un formulaire de contact pour la contacter directement par mail et des liens vers la page de prise de rendez-vous sur Résalib.</p>
-              <a href="#" class="realisations--btn">Visiter le site</a>
+              <a href="#" class="realisations--btn">Visiter le site <br> (pas encore en ligne)</a>
             </div>
             <div class="realisations--illustrations">
               <img src="img/aphton.png" alt="illustration aphton" width="400" height="auto">
@@ -130,14 +130,33 @@
           <h2 class="contact--title">Contactez moi !</h2>
           <div class="contact--container">
             <div class="contact--illustration">
-              <img src="img/contact.png" alt="illustration" width="500" height="auto">
+              <img src="img/contact.png" alt="illustration" width="350" height="350">
+              <div class="contact--links">
+                <a href="https://www.linkedin.com/in/jordan-pieton-005946121/" target="_blank" class="contact--link--btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="#" target="_blank" class="contact--link--btn"><i class="fa-brands fa-square-github"></i> Github</a>
+              </div>
             </div>
-            <div class="contact--form"></div>
+            <div class="contact--form">
+              <form action="contact.php" method="post">
+                <label for="Name">Votre nom</label>
+                <input type="text" name="Name" id="Name" autocomplete="name" required>
+                <label for="Email">Votre e-mail</label>
+                <input type="email" name="Email" id="Email" autocomplete="email" required>
+                <label for="Subject">Objet</label>
+                <input type="text" name="Subject" id="Subject" required>
+                <label for="Message"> Votre message</label>
+                <textarea name="Message" id="Message" required></textarea>
+                <br>
+                <button class="form--btn" type="submit">Envoyer</button>
+              </form>
+            </div>
           </div>
         </section>
       </main>
       <footer class="footer" id="footer">
-        <p>Jordan Pieton 2024 - Tous droits réservés - <a href="#">Mentions légales</a></p>
+        <p>Jordan Pieton 2024</p>
+        <p>Tous droits réservés</p>
+        <a href="#">Mentions légales</a>
       </footer>
 </body>
 </html>
