@@ -137,18 +137,66 @@
               </div>
             </div>
             <div class="contact--form">
-              <form action="contact.php" method="post">
+              <?php
+              error_reporting(E_ALL);
+              ini_set('display_errors', 1);
+              
+                if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                // Fonction pour nettoyer les données utilisateur
+                function clean_input($data) {
+                 return htmlspecialchars(stripslashes(trim($data)));
+                }
+
+                 // Récupération et nettoyage des données
+                  $Name = clean_input($_POST['Name']);
+                  $email = clean_input($_POST['Email']);
+                  $subject = clean_input($_POST['Subject']);
+                  $message = clean_input($_POST['Message']);
+
+                // Validation des champs
+                 if (empty($Name) || empty($subject) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
+                  $response = array("status" => "error", "message" => "Erreur : Tous les champs requis doivent être correctement remplis.");
+                } else {
+                 // Adresse email sécurisée (non visible côté client)
+                 $to = "contact@jordanpieton.fr";
+                 $subject = "Nouveau message de $Name";
+                 $body = "Nom : $Name\nEmail : $email\nMessage :\n$message";
+                 $headers = "From: no-reply@jordanpieton.fr";
+
+                 // Envoi de l'email
+                  if (mail($to, $subject, $body, $headers)) {
+                  $response = array("status" => "success", "message" => "Message envoyé avec succès.");
+                  } else {
+                 $response = array("status" => "error", "message" => "Erreur lors de l'envoi du message.");
+                  }
+                }
+ 
+                 // Retourner la réponse au format JSON
+                 header('Content-Type: application/json');
+                 echo json_encode($response);
+                 exit;
+                }
+              ?>
+
+              <!-- Formulaire de contact -->
+               <form id="contactForm" method="post">
                 <label for="Name">Votre nom</label>
                 <input type="text" name="Name" id="Name" autocomplete="name" required>
+    
                 <label for="Email">Votre e-mail</label>
                 <input type="email" name="Email" id="Email" autocomplete="email" required>
+    
                 <label for="Subject">Objet</label>
                 <input type="text" name="Subject" id="Subject" required>
-                <label for="Message"> Votre message</label>
+    
+                <label for="Message">Votre message</label>
                 <textarea name="Message" id="Message" required></textarea>
-                <br>
+    
                 <button class="form--btn" type="submit">Envoyer</button>
-              </form>
+             </form>
+
+            <!-- Div pour afficher le message -->
+             <div id="formMessage"></div>
             </div>
           </div>
         </section>
@@ -158,5 +206,6 @@
         <p>Tous droits réservés</p>
         <a href="#">Mentions légales</a>
       </footer>
+      <script src="form.js"></script>
 </body>
 </html>

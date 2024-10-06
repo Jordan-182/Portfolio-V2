@@ -435,6 +435,7 @@ textarea{
     border-radius: 5px;
     outline: none;
     padding: 5px 10px;
+    margin-bottom: 20px;
 }
 
 textarea:focus{
@@ -461,6 +462,10 @@ textarea:focus{
     background: transparent;
     color: var(--highlight-color);
     outline: none;
+}
+
+#formMessage{
+    color: var(--text-color);
 }
 
 /* FOOTER */
