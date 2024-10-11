@@ -1,30 +1,31 @@
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();  // Empêche le rechargement de la page
-
-    // Récupérer les données du formulaire
-    let formData = new FormData(this);
-
-    // Envoyer la requête AJAX
-    fetch('index.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())  // Conversion de la réponse en JSON
-    .then(data => {
-        console.log(data);
-        // Afficher le message de retour dans le div "formMessage"
-        let messageDiv = document.getElementById('formMessage');
-        if (data.status === 'success') {
-            messageDiv.style.color = 'green';
-            // Vider le formulaire après envoi
-            document.getElementById('Name').reset();
-            document.getElementById('Email').reset();
-            document.getElementById('Subject').reset();
-            document.getElementById('Message').reset();
-        } else {
-            messageDiv.style.color = 'red';
-        }
-        messageDiv.textContent = data.message; // Affiche le message
-    })
-    .catch(error => console.error('Erreur:', error));
-});
+  
+    // Requête reCAPTCHA v3
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6Lc33V4qAAAAAEckPbw_0YOsNBn9vqsBiDnJjvDp', {action: 'submit'}).then(function(token) {
+        // Ajoute le token reCAPTCHA au formulaire
+        const formData = new FormData(document.getElementById('contactForm'));
+        formData.append('g-recaptcha-response', token);
+  
+        // Envoie la requête AJAX au serveur
+        fetch('contact.php', {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            document.getElementById('contactForm').reset();  // Réinitialise les champs
+            document.getElementById('formMessage').innerText = 'Votre message a été envoyé avec succès !';
+          } else {
+            document.getElementById('formMessage').innerText = 'Échec de l’envoi. Veuillez réessayer.';
+          }
+        })
+        .catch(error => {
+          document.getElementById('formMessage').innerText = 'Erreur : ' + error;
+        });
+      });
+    });
+  });
+  
