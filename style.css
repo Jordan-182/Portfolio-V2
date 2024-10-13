@@ -111,6 +111,10 @@ nav{
     transform: scaleX(1);
 }
 
+.navlinks-container a.active::after {
+    transform: scaleX(1);
+}
+
 .mobile-nav-logo{
     display: none;
 }
