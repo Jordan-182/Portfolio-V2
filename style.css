@@ -277,7 +277,7 @@ nav{
     font-size: 1.1rem;
     font-weight: bold;
     color: var(--highlight-color);
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .projects--card--description,
@@ -512,11 +512,17 @@ textarea:focus{
         display: flex;
         flex-direction: column;
         padding: 60px 40px;
+        gap: 20px;
+    }
+
+    .intro--text--links{
+        margin-top: 30px;
     }
 
     .about{
         display: flex;
         flex-direction: column;
+        padding-bottom: 25px;
     }
 
     .about--text{
@@ -656,6 +662,10 @@ textarea:focus{
     .contact--container{
         display: flex;
         flex-direction: column;
+    }
+
+    #contactForm{
+        padding-bottom: 0;
     }
 }
 

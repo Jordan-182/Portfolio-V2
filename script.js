@@ -90,3 +90,17 @@ scrollToTop.addEventListener("click", (e) => {
         hamburgerToggler.classList.toggle("open");
     };
 });
+
+const scrollToTopMobile = document.querySelector(".text-logo a");
+scrollToTopMobile.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+    
+    if(navLinksContainer.classList.contains('open')){
+        navLinksContainer.classList.remove('open');
+        hamburgerToggler.classList.toggle("open");
+    };
+});
