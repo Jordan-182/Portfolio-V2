@@ -104,3 +104,151 @@ scrollToTopMobile.addEventListener("click", (e) => {
         hamburgerToggler.classList.toggle("open");
     };
 });
+
+// Split du texte à animer
+
+let selection = Splitting();
+
+// GSAP ANIMATIONS
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from('.intro--text--title' , {
+    x: -400 ,
+    opacity: 0
+});
+
+gsap.from('.intro--text--subtitle' , {
+    x: 400 ,
+    opacity: 0
+});
+
+gsap.from('.about--title' , {
+    x: -400 ,
+    opacity: 0 ,
+    scrollTrigger: {
+        trigger: '.about',
+        start: 'top 75%',
+        end: 'bottom bottom',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from('.about--illustration' , {
+    x: 50 ,
+    opacity: 0 ,
+    scrollTrigger: {
+        trigger: '.about--illustration',
+        start: 'top center',
+        end: '50% center',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from(selection[0].chars , {
+    color: "#0F282F",
+    stagger: 0.5,
+    scrollTrigger: {
+        trigger: '.about',
+        start: 'top center',
+        end: '50% center',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from('.projects--title' , {
+    x: -400 ,
+    opacity: 0 ,
+    scrollTrigger: {
+        trigger: '.projects',
+        start: 'top 75%',
+        end: '50% 75%',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from('.projects--card' , {
+    y: 400 ,
+    opacity: 0 ,
+    stagger: 0.2 ,
+    scrollTrigger: {
+        trigger: '.projects',
+        start: 'top 75%',
+        end: 'bottom bottom',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from('.realisations--title' , {
+    x: -400 ,
+    opacity: 0 ,
+    scrollTrigger: {
+        trigger: '.realisations',
+        start: 'top 75%',
+        end: 'bottom bottom',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from('.realisations--card' , {
+    y: 100 ,
+    opacity: 0 ,
+    scrollTrigger: {
+        trigger: '.realisations',
+        start: 'top 75%',
+        end: 'bottom bottom',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from('.contact--title' , {
+    x: -400 ,
+    opacity: 0 ,
+    scrollTrigger: {
+        trigger: '.contact',
+        start: 'top 75%',
+        end: '50% bottom',
+        scrub: true ,
+        markers: false
+    }
+});
+
+gsap.from('.contact--container' , {
+    y: 200 ,
+    opacity: 0 ,
+    scrollTrigger: {
+        trigger: '.contact',
+        start: 'top 75%',
+        end: 'bottom bottom',
+        scrub: true ,
+        markers: false
+    }
+});
+
+// LENIS SMOOTH SCROLL
+
+// Initialize a new Lenis instance for smooth scrolling
+const lenis = new Lenis();
+
+// Listen for the 'scroll' event and log the event data to the console
+lenis.on('scroll', (e) => {
+  console.log(e);
+});
+
+// Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+lenis.on('scroll', ScrollTrigger.update);
+
+// Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+// This ensures Lenis's smooth scroll animation updates on each GSAP tick
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+});
+
+// Disable lag smoothing in GSAP to prevent any delay in scroll animations
+gsap.ticker.lagSmoothing(0);
